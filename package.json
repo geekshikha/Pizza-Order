@@ -1,0 +1,21 @@
+{
+  "name": "order",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "overrides": {
+    "@nestjs/swagger": {
+      "path-to-regexp": "^3.3.0"
+    }
+  },
+  "keywords": [],
+  "author": "Shikha",
+  "license": "ISC",
+  "description": "",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
