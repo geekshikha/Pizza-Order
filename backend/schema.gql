@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pizza {
+  id: ID!
+  type: String!
+  status: String!
+}
+
+type Query {
+  getPizza: Pizza!
+}
+
+type Mutation {
+  orderPizza(type: String!): Pizza!
+}
