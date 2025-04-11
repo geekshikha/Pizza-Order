@@ -1,26 +1,18 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-
-interface Pizza {
-  id: string;
-  type: string;
-  status: string;
-}
+import { Pizza } from "@/types/type";
 
 interface PizzaContextType {
   pizza: Pizza | null;
   setPizza: (pizza: Pizza | null) => void;
-  ordered: boolean;
-  setOrdered: (ordered: boolean) => void;
 }
 
 const PizzaContext = createContext<PizzaContextType | undefined>(undefined);
 
 export const PizzaProvider = ({ children }: { children: ReactNode }) => {
   const [pizza, setPizza] = useState<Pizza | null>(null);
-  const [ordered, setOrdered] = useState<boolean>(false);
 
   return (
-    <PizzaContext.Provider value={{ pizza, setPizza, ordered, setOrdered }}>
+    <PizzaContext.Provider value={{ pizza, setPizza }}>
       {children}
     </PizzaContext.Provider>
   );

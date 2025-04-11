@@ -5,9 +5,10 @@ import { Pizza } from './pizza.model';
 export class PizzaService {
   orderPizza(type: string): Pizza {
     return {
-      id: Math.random().toString(36).substring(2, 9),
+      id: type,
       type,
-      status: 'Ordered',
+      name: type,
+      image: type,
     };
   }
 }

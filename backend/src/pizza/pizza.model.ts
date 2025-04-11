@@ -9,5 +9,8 @@ export class Pizza {
   type: string;
 
   @Field()
-  status: string;
+  name: string;
+
+  @Field()
+  image: string;
 }

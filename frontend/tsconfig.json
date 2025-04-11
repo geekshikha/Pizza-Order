@@ -13,13 +13,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
-      "@context/*": ["context/*"],
-      "@graphql/*": ["graphql/*"],
-      "@lib/*": ["lib/*"]
+      "@/*": ["*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/graphql/queriests"],
   "exclude": ["node_modules"]
 }

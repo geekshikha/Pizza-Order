@@ -1,25 +1,26 @@
-import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
-import { PizzaService } from './pizza.service';
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { Pizza } from './pizza.model';
+import { pizzaList } from '../data/pizza';
 
-@Resolver(() => Pizza)
+@Resolver()
 export class PizzaResolver {
-  constructor(private readonly pizzaService: PizzaService) {}
-
-  // Add a Query (e.g., get a default pizza)
-  @Query(() => Pizza)
-  async getPizza(): Promise<Pizza> {
-    return {
-      id: 'default-id',
-      type: 'Margherita',
-      status: 'Ordered',
-    };
+  @Query(() => [Pizza])
+  availablePizzas(): Pizza[] {
+    return pizzaList;
   }
 
   @Mutation(() => Pizza)
-  async orderPizza(
-    @Args('type', { type: () => String }) type: string,
-  ): Promise<Pizza> {
-    return this.pizzaService.orderPizza(type);
+  orderPizza(@Args('type') type: string): Pizza {
+    const selected = pizzaList.find((p) => p.name === type);
+    if (!selected) {
+      throw new Error('Invalid pizza type');
+    }
+
+    return {
+      id: selected.id,
+      type: selected.name,
+      name: selected.name,
+      image: selected.image,
+    };
   }
 }

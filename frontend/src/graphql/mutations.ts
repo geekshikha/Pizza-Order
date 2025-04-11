@@ -5,7 +5,7 @@ export const ORDER_PIZZA = gql`
     orderPizza(type: $type) {
       id
       type
-      status
+      name
     }
   }
 `;
