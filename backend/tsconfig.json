@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -15,7 +15,12 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    
+    "outDir": "dist",
+    "rootDir": ".",
     "types": ["node", "@prisma/client"],
     "baseUrl": "./",
     "paths": {
@@ -23,6 +28,9 @@
     },
     "useDefineForClassFields": false,
     "strict": false
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": ["src/**/*", "prisma/**/*"],
   "exclude": ["node_modules", "dist"]

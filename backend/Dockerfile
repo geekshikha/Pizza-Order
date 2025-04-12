@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 # Install Prisma CLI globally
-RUN npm install -g prisma
+RUN npm install -g prisma ts-node
 
 # Copy source code
 COPY . .
@@ -22,7 +22,7 @@ FROM node:18-alpine AS prod
 WORKDIR /app
 
 # Install Prisma CLI in production
-RUN npm install -g prisma
+RUN npm install -g prisma ts-node
 
 # Copy only the necessary files
 COPY --from=build /app/package*.json ./

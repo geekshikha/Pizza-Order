@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-import { PizzaService } from './pizza.service';
-import { Pizza } from './pizza.model';
+import { PizzaService } from './pizza.service.js';
+import { Pizza } from './pizza.model.js';
 
 @Resolver(() => Pizza)
 export class PizzaResolver {

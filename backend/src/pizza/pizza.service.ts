@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
-import { Pizza } from './pizza.model';
+import { PrismaService } from '../prisma/prisma.service.js';
+import { Pizza } from './pizza.model.js';
 
 @Injectable()
 export class PizzaService {

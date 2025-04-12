@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { PizzaResolver } from './pizza.resolver';
-import { PizzaService } from './pizza.service';
-import { PrismaModule } from '../../src/prisma/prisma.module';
+import { PizzaResolver } from './pizza.resolver.js';
+import { PizzaService } from './pizza.service.js';
+import { PrismaModule } from '../prisma/prisma.module.js';
 
 @Module({
   imports: [PrismaModule],
