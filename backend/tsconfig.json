@@ -16,6 +16,7 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
+    "types": ["node", "@prisma/client"],
     "baseUrl": "./",
     "paths": {
       "@prisma/client": ["./node_modules/@prisma/client"]

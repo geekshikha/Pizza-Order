@@ -11,14 +11,13 @@ export class PizzaService {
   constructor(private readonly prisma: PrismaService) {}
 
   private getImagePath(type: string): string {
-    console.log('Getting image path for type:', type);
     const imageMap: Record<string, string> = {
       Margherita: '/images/margherita.jpg',
       Pepperoni: '/images/pepperoni.jpg',
       Veggie: '/images/veggie.jpg',
     };
     const path = imageMap[type] || '/images/default.jpg';
-    console.log('Selected image path:', path);
+
     return path;
   }
 
@@ -30,7 +29,7 @@ export class PizzaService {
       },
       distinct: ['name'],
     });
-    console.log('Raw pizzas from DB:', pizzas);
+
     return pizzas.map((pizza: any) => {
       const imagePath = this.getImagePath(pizza.type as string);
 
