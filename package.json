@@ -14,10 +14,12 @@
   "author": "Shikha",
   "license": "ISC",
   "description": "",
-  "workspaces": [
-    "backend",
-    "frontend"
-  ],
+  "workspaces": {
+    "packages": [
+      "backend",
+      "frontend"
+    ]
+  },
   "devDependencies": {
     "@types/lodash": "^4.17.16"
   },

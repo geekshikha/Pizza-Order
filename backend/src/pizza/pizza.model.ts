@@ -3,14 +3,14 @@ import { ObjectType, Field, ID } from '@nestjs/graphql';
 @ObjectType()
 export class Pizza {
   @Field(() => ID)
-  id: string;
+  id!: string;
 
-  @Field()
-  type: string;
+  @Field(() => String)
+  type!: string;
 
-  @Field()
-  name: string;
+  @Field(() => String)
+  name!: string;
 
-  @Field()
-  image: string;
+  @Field(() => String)
+  image!: string;
 }

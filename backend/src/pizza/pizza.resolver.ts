@@ -1,26 +1,22 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
+import { PizzaService } from './pizza.service';
 import { Pizza } from './pizza.model';
-import { pizzaList } from '../data/pizza';
 
-@Resolver()
+@Resolver(() => Pizza)
 export class PizzaResolver {
+  constructor(private readonly pizzaService: PizzaService) {}
+
   @Query(() => [Pizza])
-  availablePizzas(): Pizza[] {
-    return pizzaList;
+  async availablePizzas(): Promise<Pizza[]> {
+    return this.pizzaService.getPizzas();
   }
 
   @Mutation(() => Pizza)
-  orderPizza(@Args('type') type: string): Pizza {
-    const selected = pizzaList.find((p) => p.name === type);
-    if (!selected) {
-      throw new Error('Invalid pizza type');
-    }
-
-    return {
-      id: selected.id,
-      type: selected.name,
-      name: selected.name,
-      image: selected.image,
-    };
+  orderPizza(@Args('type') type: string): Promise<Pizza> {
+    return this.pizzaService.createPizza({
+      name: type,
+      type: type,
+      image: type,
+    });
   }
 }

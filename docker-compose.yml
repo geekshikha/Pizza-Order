@@ -1,9 +1,26 @@
-version: "3.8"
+# version: "3.8"
 services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: mypostgresdatabase
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: "postgresql://postgres:mypostgresdatabase@postgres:5432/postgres?schema=public"
+    networks:
+      - app-network
     ports:
       - "3000:3000"
     container_name: backend
@@ -19,3 +36,11 @@ services:
     restart: unless-stopped
     depends_on:
       - backend
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
