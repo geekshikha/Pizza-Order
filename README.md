@@ -86,3 +86,9 @@ The application will be available at:
 - Backend runs on port 3000
 - Frontend runs on port 3001
 - PostgreSQL runs on port 5432
+
+## 🔮 Future Improvements
+
+- Store Pizza menu (Pizza type) in a separate table called `PizzaType`
+- This approach will allow us to add more pizza types and extend the menu
+- Current `Pizza` table should be renamed to Order
